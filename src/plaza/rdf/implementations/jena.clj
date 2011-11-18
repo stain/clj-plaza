@@ -21,7 +21,7 @@
 
 ;; Loading RDFa java
 
-(Class/forName "net.rootdev.javardfa.RDFaReader")
+(Class/forName "net.rootdev.javardfa.jena.RDFaReader")
 
 ;; declaration of symbols
 
