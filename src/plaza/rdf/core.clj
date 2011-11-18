@@ -78,13 +78,13 @@
 
 
 ;; The root *rdf-model* that will be used by default
-(def *rdf-model* nil)
+(def ^:dynamic *rdf-model* nil)
 
 ;; The root *namespace* that will be used by default
-(def *rdf-ns* "http://plaza.org/ontologies/")
+(def ^:dynamic *rdf-ns* "http://plaza.org/ontologies/")
 
 ;; The root *rdf-model-builder-fn* that will be used by default to build models
-(def *rdf-model-builder-fn* nil)
+(def ^:dynamic *rdf-model-builder-fn* nil)
 
 ;;; Declaration of a model
 
@@ -148,10 +148,10 @@
 ;;; Namespaces
 
 ;; Dictionaries for data
-(def *rdf-ns-table* (ref {:rdfs "http://www.w3.org/2000/01/rdf-schema#"
+(def ^:dynamic *rdf-ns-table* (ref {:rdfs "http://www.w3.org/2000/01/rdf-schema#"
                           :rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#"}))
 
-(def *rdf-ns-inverse-table* (ref {"http://www.w3.org/2000/01/rdf-schema#" :rdfs
+(def ^:dynamic *rdf-ns-inverse-table* (ref {"http://www.w3.org/2000/01/rdf-schema#" :rdfs
                                   "http://www.w3.org/1999/02/22-rdf-syntax-ns#" :rdf }))
 
 (defn register-rdf-ns

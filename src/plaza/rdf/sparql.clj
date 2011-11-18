@@ -8,7 +8,7 @@
 
 ;; main SPARQL framework
 ;; This value must be set when starting the application
-(def *sparql-framework* nil)
+(def ^:dynamic *sparql-framework* nil)
 
 ;; sets the root bindings, useful when reading configuration.
 (defn alter-root-sparql-framework

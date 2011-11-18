@@ -10,7 +10,7 @@
         [clojure.contrib.seq-utils :only [includes?]]
         (plaza utils)))
 
-(defonce *vocabularies-to-load* (ref []))
+(defonce ^:dynamic *vocabularies-to-load* (ref []))
 
 (defmacro declare-schemas-to-load
   ([& body]
