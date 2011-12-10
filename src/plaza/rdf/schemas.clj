@@ -3,12 +3,11 @@
 ;; @date 26.05.2010
 
 (ns plaza.rdf.schemas
-  (:use (plaza utils)
+  (:use plaza.utils
         (plaza.rdf core sparql predicates)
-        (plaza.rdf.implementations common)
-        [clojure.contrib.logging :only [log]]
-        [clojure.contrib.seq-utils :only [includes?]]
-        (plaza utils)))
+        plaza.rdf.implementations.common
+        [clojure.tools.logging :only [log]]
+        [clojure.contrib.seq-utils :only [includes?]]))
 
 (defonce ^:dynamic *vocabularies-to-load* (ref []))
 
