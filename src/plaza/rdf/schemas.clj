@@ -6,8 +6,7 @@
   (:use plaza.utils
         (plaza.rdf core sparql predicates)
         plaza.rdf.implementations.common
-        [clojure.tools.logging :only [log]]
-        [clojure.contrib.seq-utils :only [includes?]])
+        [clojure.tools.logging :only [log]])
   (:require clojure.set))
 
 (defonce ^:dynamic *vocabularies-to-load* (ref []))
