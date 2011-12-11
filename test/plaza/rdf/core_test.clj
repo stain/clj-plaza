@@ -1,10 +1,10 @@
 (ns plaza.rdf.core-test
-  (:use [plaza.rdf core] :reload-all)
-  (:use [plaza.rdf.implementations jena common] :reload-all)
-  (:use [clojure.test]))
+  (:use (plaza.rdf core)
+        (plaza.rdf.implementations jena common)
+        clojure.test))
 
 ;; rdf/xml used in the tests
-(def *test-xml* "<rdf:RDF
+(def ^:dynamic *test-xml* "<rdf:RDF
     xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
     xmlns:test=\"http://plaza.org/ontologies/\" >
   <rdf:Description rdf:about=\"http://plaza.org/ontologies/a\">
@@ -16,7 +16,7 @@
   </rdf:Description>
 </rdf:RDF>")
 
-(def *test-xml-blanks* "<?xml version=\"1.0\"?>
+(def ^:dynamic *test-xml-blanks* "<?xml version=\"1.0\"?>
 <rdf:RDF xmlns:csf=\"http://schemas.microsoft.com/connectedservices/pm#\" xmlns:owl=\"http://www.w3.org/2002/07/owl#\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\">
     <rdf:Description rdf:about=\"urn:upn_abc\">
         <csf:Phone>
@@ -87,7 +87,7 @@
 (deftest test-make-typed-literal
   (let [m (build-model :jena)
         p1 (with-model m
-             (rdf-typed-literal (int 2)))
+             (rdf-typed-literal (Integer. 2)))
         p2 (with-model m
              (rdf-typed-literal 2 :anyuri))]
     (is (= (to-string p1) "\"2\"^^<http://www.w3.org/2001/XMLSchema#int>"))
@@ -128,7 +128,7 @@
                (triple-object (l "test"))))
         p4 (with-model m
              (with-rdf-ns "http://test.com/"
-               (triple-object (d 2))))]
+               (triple-object (d (Integer. 2)))))]
     (is (= (to-string p1) "http://test.com/p"))
     (is (= (to-string p2) "http://www.w3.org/1999/02/22-rdf-syntax-ns#p"))
     (is (= (to-string p3) "test"))

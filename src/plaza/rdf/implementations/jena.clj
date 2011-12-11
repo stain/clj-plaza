@@ -164,8 +164,11 @@
   (equals [resource other-resource] (= (resource-id resource) (resource-id other-resource))))
 
 
-(deftype JenaModel [mod] RDFModel RDFDatatypeMapper JavaObjectWrapper RDFPrintable
+(deftype JenaModel [mod]
+  JavaObjectWrapper
   (to-java [model] mod)
+  
+  RDFModel
   (create-resource [model ns local] (.createResource mod (expand-ns ns local)))
   (create-resource [model uri]
                    (if (instance? plaza.rdf.core.RDFResource uri)
@@ -260,7 +263,6 @@
                                                         (create-resource model (str obj)))))]
                                             (f s p o)))
                                         stmts)))))
-  (to-string [model] (walk-triples model (fn [s p o] [(to-string s) (to-string p) (to-string o)])))
   (load-stream [model stream format]
                (let [format (parse-format format)]
                  (critical-write model
@@ -273,9 +275,15 @@
                   (critical-read model (fn [] (.write mod writer (parse-format format)))))
   (output-string  [model format]
                   (output-string model *out* format))
-  (find-datatype [model literal] (find-jena-datatype literal))
   (query [model query] (model-query-fn model query (str (build-query *sparql-framework* query))))
-  (query-triples [model query] (model-query-triples-fn model query)))
+  (query-triples [model query] (model-query-triples-fn model query))
+
+  
+  RDFDatatypeMapper
+  (find-datatype [model literal] (find-jena-datatype literal))
+
+  RDFPrintable
+  (to-string [model] (walk-triples model (fn [s p o] [(to-string s) (to-string p) (to-string o)]))))
 
 (deftype JenaSparqlFramework [] SparqlFramework
   (parse-sparql-to-query [framework sparql] (parse-sparql-to-query-fn sparql))
