@@ -97,6 +97,7 @@
 
 
 (deftest test-predicate-2
+  (init-jena-framework)
   (is (triple-check-apply (datatype? :int) (d (Integer. 1))))
   (is (not (triple-check-apply (datatype? :int) (d 2.0))))
   (is (triple-check-apply (datatype? "http://www.w3.org/2001/XMLSchema#int") (d (Integer. 1)))))

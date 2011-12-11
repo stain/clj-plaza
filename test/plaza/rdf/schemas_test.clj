@@ -65,6 +65,7 @@
     (is (= 37 (count ts)))))
 
 (deftest test-parse-from-rdf
+  (init-sesame-framework)
   (let [ts (to-rdf-triples foaf:Agent-schema)
         *m* (build-model)
         _tmp (with-model *m* (model-add-triples ts))
