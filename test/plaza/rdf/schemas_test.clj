@@ -1,9 +1,9 @@
 (ns plaza.rdf.schemas-test
   (:use [plaza.rdf core sparql schemas]
-        [plaza.rdf.implementations jena]
+        [plaza.rdf.implementations sesame]
         [clojure.test]))
 
-(init-jena-framework)
+(init-sesame-framework)
 (use 'plaza.rdf.vocabularies.foaf)
 (init-vocabularies)
 
