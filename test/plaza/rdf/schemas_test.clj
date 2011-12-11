@@ -1,7 +1,7 @@
 (ns plaza.rdf.schemas-test
-  (:use [plaza.rdf core sparql schemas] :reload-all)
-  (:use [plaza.rdf.implementations jena] :reload-all)
-  (:use [clojure.test]))
+  (:use [plaza.rdf core sparql schemas]
+        [plaza.rdf.implementations jena]
+        [clojure.test]))
 
 (init-jena-framework)
 (use 'plaza.rdf.vocabularies.foaf)

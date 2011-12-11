@@ -1,12 +1,12 @@
 (ns plaza.rdf.predicates-test
-  (:use [plaza.rdf core predicates] :reload-all)
-  (:use [plaza.rdf.implementations jena] :reload-all)
-  (:use [clojure.test]))
+  (:use [plaza.rdf core predicates]
+        [plaza.rdf.implementations jena]
+        [clojure.test]))
 
 (init-jena-framework)
 
 ;; rdf/xml used in the tests
-(def *test-xml* "<rdf:RDF
+(def ^:dynamic *test-xml* "<rdf:RDF
     xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"
     xmlns:test=\"http://plaza.org/ontologies/\" >
   <rdf:Description rdf:about=\"http://plaza.org/ontologies/a\">
@@ -97,9 +97,9 @@
 
 
 (deftest test-predicate-2
-  (is (triple-check-apply (datatype? :int) (d 1)))
+  (is (triple-check-apply (datatype? :int) (d (Integer. 1))))
   (is (not (triple-check-apply (datatype? :int) (d 2.0))))
-  (is (triple-check-apply (datatype? "http://www.w3.org/2001/XMLSchema#int") (d 1))))
+  (is (triple-check-apply (datatype? "http://www.w3.org/2001/XMLSchema#int") (d (Integer. 1)))))
 
 (deftest test-predicate-3
   (is (= true (triple-check-apply (literal-fn? (fn[l] true )) (l "cat"))))

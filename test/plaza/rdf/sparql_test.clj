@@ -1,8 +1,8 @@
 (ns plaza.rdf.sparql-test
-  (:use [plaza.utils])
-  (:use [plaza.rdf predicates core sparql] :reload-all)
-  (:use [plaza.rdf.implementations jena] :reload-all)
-  (:use [clojure.test]))
+  (:use [plaza.utils]
+        [plaza.rdf predicates core sparql]
+        [plaza.rdf.implementations jena]
+        [clojure.test]))
 
 ;; we'll test with jena
 (init-jena-framework)

@@ -1,7 +1,7 @@
 (ns plaza.rdf.implementations.sesame-test
-  (:use [plaza.rdf core sparql] :reload-all)
-  (:use [plaza.rdf.implementations sesame] :reload-all)
-  (:use [clojure.test]))
+  (:use [plaza.rdf core sparql]
+        [plaza.rdf.implementations sesame]
+        [clojure.test]))
 
 ;; we'll test with jena
 (init-sesame-framework)

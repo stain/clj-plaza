@@ -1,7 +1,7 @@
 (ns plaza.rdf.implementations.jena-test
-  (:use [plaza.rdf core] :reload-all)
-  (:use [plaza.rdf.implementations jena common] :reload-all)
-  (:use [clojure.test]))
+  (:use [plaza.rdf core]
+        [plaza.rdf.implementations jena common]
+        [clojure.test]))
 
 ;; we'll test with jena
 (init-jena-framework)
@@ -56,7 +56,7 @@
 
 (deftest test-jena-typed-literal
   (let [model (build-model :jena)
-        res (create-typed-literal model 2)]
+        res (create-typed-literal model (Integer. 2))]
     (is (= "\"2\"^^<http://www.w3.org/2001/XMLSchema#int>" (to-string res)))
     (is (not (is-blank res)))
     (is (not (is-resource res)))

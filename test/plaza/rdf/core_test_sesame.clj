@@ -1,7 +1,7 @@
 (ns plaza.rdf.core-test-sesame
-  (:use [plaza.rdf core] :reload-all)
-  (:use [plaza.rdf.implementations sesame] :reload-all)
-  (:use [clojure.test]))
+  (:use [plaza.rdf core]
+        [plaza.rdf.implementations sesame]
+        [clojure.test]))
 
 ;; rdf/xml used in the tests
 (def *test-xml* "<rdf:RDF

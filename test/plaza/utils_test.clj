@@ -1,6 +1,6 @@
 (ns plaza.utils-test
-  (:use [plaza.utils] :reload-all)
-  (:use [clojure.test]))
+  (:use plaza.utils
+        clojure.test))
 
 (deftest test-fold-list
   (is (= (fold-list [1 2 3 4])
