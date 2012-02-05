@@ -87,7 +87,7 @@
 (deftest test-make-typed-literal
   (let [m (build-model :jena)
         p1 (with-model m
-             (rdf-typed-literal 2))
+             (rdf-typed-literal (int 2)))
         p2 (with-model m
              (rdf-typed-literal 2 :anyuri))]
     (is (= (to-string p1) "\"2\"^^<http://www.w3.org/2001/XMLSchema#int>"))
