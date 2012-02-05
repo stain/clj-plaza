@@ -504,6 +504,7 @@
 (defn parse-format
   ([format]
      (cond (= (.toLowerCase (keyword-to-string format)) "xml") "RDF/XML"
+           (= (.toLowerCase (keyword-to-string format)) "xml-abbrev") "RDF/XML-ABBREV"
            (= (.toLowerCase (keyword-to-string format)) "ntriple") "N-TRIPLE"
            (= (.toLowerCase (keyword-to-string format)) "n3") "N3"
            (= (.toLowerCase (keyword-to-string format)) "ttl") "TURTLE"
