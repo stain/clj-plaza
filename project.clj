@@ -11,7 +11,6 @@
                  "http://repository.jboss.org/nexus/content/groups/public/" }
   :exclusions [org.clojure/contrib
                org.clojure/clojure-contrib]
-  :main     plaza.core
   :autodoc {:name "clj-plaza",
             :page-title "clj-plaza distributed semantic systems library"
             :author "Antonio Garrote <antoniogarrote@gmail.com> <agarrote@usal.es>"
