@@ -6,6 +6,7 @@
                  [com.hp.hpl.jena/jena "2.6.4"]
                  [com.hp.hpl.jena/arq "2.8.8"]
                  [net.rootdev/java-rdfa "0.4.2-RC2"]
+                 [com.franz/openrdf-sesame-onejar "2.2"]
                  [log4j "1.2.14"]]
   :repositories {"jboss"
                  "http://repository.jboss.org/nexus/content/groups/public/" }
