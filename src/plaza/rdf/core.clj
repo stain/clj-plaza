@@ -78,13 +78,13 @@
 
 
 ;; The root *rdf-model* that will be used by default
-(def ^:dynamic *rdf-model* nil)
+(defonce ^:dynamic *rdf-model* nil)
 
 ;; The root *namespace* that will be used by default
-(def ^:dynamic *rdf-ns* "http://plaza.org/ontologies/")
+(defonce ^:dynamic *rdf-ns* "http://plaza.org/ontologies/")
 
 ;; The root *rdf-model-builder-fn* that will be used by default to build models
-(def ^:dynamic *rdf-model-builder-fn* nil)
+(defonce ^:dynamic *rdf-model-builder-fn* nil)
 
 ;;; Declaration of a model
 
