@@ -1,4 +1,4 @@
-(defproject net.kronkltd/plaza "0.1.0-SNAPSHOT"
+(defproject stain/plaza "0.1.1-SNAPSHOT"
   :description "Plaza framework for semantic distributed applications"
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [org.clojure/data.json "0.1.0"]
